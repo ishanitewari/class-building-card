@@ -13,16 +13,81 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #ededed;
+      background-color: #777e9c;
     }
   </style>
   <title>class-building-card</title>
 </head>
 
 <body>
+  <div class="buttons">
+    <button class="duplicate">
+      Duplicate Card
+    </button>
+    <button class="toggle">
+      Toggle Color
+    </button>
+    <button class="change">
+      Change Title
+    </button>
+    <button class="delete">
+      Delete Card
+    </button>
+    <button class="details">
+      Toggle Details
+    </button>
+    </div>
   <class-building-card></class-building-card>
 
+
   <script type="module" src="./src/class-building-card.js"></script>
+  <script type="module">
+    function duplicateCard() {
+      const node = document.querySelector("class-building-card");
+      const clone = node.cloneNode(true);
+      document.body.appendChild(clone);
+    }
+    function changeColor() {
+      const colors = ["Blue Gray", "Deep-sea Blue", "Dark Slate", "Marbl Blue"]
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector("class-building-card").accentColor = randomColor;
+    }
+
+    function changeTitle() {
+      const newDescription = window.prompt("Welcome to the Nerd House!");
+      document.querySelector("class-building-card").name  = newDescription;
+  
+    };
+
+
+    function removeLastCard() {
+      const {lastChild} = document.body;
+      if (lastChild.isEqualNode(document.querySelector("class-building-card"))){
+        lastChild.remove();
+      } else {
+        alert("you can not escape! you can not get out!");
+      }
+    }
+
+    function toggleDetails() {
+      const card = document.querySelector("class-building-card");
+      card.openDetails = !card.openDetails;
+    }
+
+    document.querySelector(".duplicate").addEventListener("click", duplicateCard);
+    
+    document.querySelector(".toggle").addEventListener("click", changeColor)
+    
+    document.querySelector(".change").addEventListener("click", changeTitle);
+    
+    document.querySelector(".delete").addEventListener("click", removeLastCard);
+
+    document.querySelector(".details").addEventListener("click", toggleDetails)
+
+</script>
+
+
+
 </body>
 
 </html>
