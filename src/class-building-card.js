@@ -1,6 +1,3 @@
-/* eslint-disable lit/no-invalid-html */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-unused-vars */
 import { LitElement, html, css } from 'lit';
 import '@lrnwebcomponents/meme-maker/meme-maker.js';
 
