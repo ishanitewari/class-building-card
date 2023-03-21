@@ -48,7 +48,7 @@
       document.body.appendChild(clone);
     }
     function changeColor() {
-      const colors = ["Blue Gray", "Deep-sea Blue", "Dark Slate", "Marbl Blue"]
+      const colors = ["blue", "green", "orange", "coral"]
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       document.querySelector("class-building-card").accentColor = randomColor;
     }
@@ -56,14 +56,13 @@
     function changeTitle() {
       const newDescription = window.prompt("Welcome to the Nerd House!");
       document.querySelector("class-building-card").name  = newDescription;
-  
     };
 
 
     function removeLastCard() {
       const {lastChild} = document.body;
       if (lastChild.isEqualNode(document.querySelector("class-building-card"))){
-        lastChild.remove();
+          lastChild.remove();
       } else {
         alert("you can not escape! you can not get out!");
       }
